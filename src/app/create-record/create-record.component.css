@@ -1,0 +1,9 @@
+.btn{
+    padding-left: 169px;
+    padding-top: 23px;
+}
+.validationMessage{
+    color: rgb(200, 44, 44);
+    padding-left: 50px;
+    font-size: small;
+}

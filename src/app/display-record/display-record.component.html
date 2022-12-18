@@ -1,0 +1,39 @@
+
+<button (click)="createOrder()">Create new Order</button> 
+<input class="srch" type="text" placeholder="search by party name" (keyup)="onSearch($event)">
+<label class="dat">Date : {{date | date :'dd/MM/yyyy'}}</label>
+<table id="exclData">
+    <tr>
+      <th>Order No.</th>
+      <th>Date</th>
+      <th>PCode</th>
+      <th>Party Name</th>
+      <th>City</th>
+      <th>Amount</th>
+      <th>Order By</th>
+      <th>Priority</th>
+      <th>Delivery Mode</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let item of detail; let i = index">
+      <ng-container *ngIf="item">
+        <td>{{item.orderNo}}</td>
+        <td>{{item.date}}</td>
+        <td>{{item.pCode}}</td>
+        <td>{{item.partyName}}</td>
+        <td>{{item.city}}</td>
+        <td>{{item.amount}}</td>
+        <td>{{item.orderBy}}</td>
+        <td>{{item.priority}}</td>
+        <td>{{item.deliveryMode}}</td>
+        <td>{{item.status}}</td>
+        <td>
+          <button (click)="onEdit(i)">edit</button>
+          <button (click)="onView(item)">view</button>
+        </td>
+      </ng-container>
+    </tr>
+    <tr *ngIf="records.orderDetail.length > 10"><button (click)="onLoadMore()">load more</button></tr>
+  </table>
+  

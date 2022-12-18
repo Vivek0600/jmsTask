@@ -1,0 +1,24 @@
+<div class="loginForm">
+    <h1>login page</h1>
+    <form [formGroup]="loginFormGroup">
+        <table>
+            <tr>
+                <td>
+                    <label>Mobile Number</label>
+                </td>
+                <td>
+                    <input type="text" placeholder="Mobile Number" formControlName="userName">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Password</label>
+                </td>
+                <td>
+                    <input type="password" placeholder="Enter Password" formControlName="password">
+                </td>
+            </tr>
+        </table>
+        <button (click)="onLogIn()">LogIn</button>
+    </form>
+</div>

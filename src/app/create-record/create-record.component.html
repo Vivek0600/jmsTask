@@ -1,0 +1,97 @@
+<form [formGroup]="createFormGroup">
+    <table style="width:100%">
+        <tr>
+            <td>select date</td>
+            <td>
+                <input type="date" formControlName="date">
+                <label class="validationMessage" *ngIf="showError && getForm.date?.errors?.required">* please select
+                    date</label>
+            </td>
+        </tr>
+        <tr>
+            <td>Product Code</td>
+            <td>
+                <input type="text" placeholder="Product code" formControlName="pCode">
+                <label class="validationMessage" *ngIf="showError && getForm.pCode?.errors?.required">* please enter
+                    product code</label>
+            </td>
+        </tr>
+        <tr>
+            <td>Party Name</td>
+            <td>
+                <input type="text" placeholder="Party Name" formControlName="partyName">
+                <label class="validationMessage" *ngIf="showError && getForm.partyName?.errors?.required">* please enter
+                    party name</label>
+            </td>
+        </tr>
+        <tr>
+            <td>City</td>
+            <td>
+                <select class="form-select" formControlName="city">
+                    <option value="">Select</option>
+                    <option [value]="obj?.name" *ngFor="let obj of records.cityList">{{obj.name}}</option>
+                </select>
+                <label class="validationMessage" *ngIf="showError && getForm.city?.errors?.required">* please select
+                    city</label>
+            </td>
+        </tr>
+        <tr>
+            <td>Amount</td>
+            <td>
+                <input type="text" placeholder="amount" formControlName="amount">
+                <label class="validationMessage" *ngIf="showError  && getForm.amount?.errors?.required">* please enter
+                    amount</label>
+            </td>
+        </tr>
+        <tr>
+            <td>Product ordered By</td>
+            <td>
+                <select class="form-select" formControlName="orderBy">
+                    <option value="">Select</option>
+                    <option [value]="obj?.orderBy" *ngFor="let obj of records.orderCategory">{{obj?.orderBy}}</option>
+                </select>
+                <label class="validationMessage" *ngIf="showError && getForm.orderBy?.errors?.required">* please select
+                    orderBy</label>
+            </td>
+        </tr>
+        <tr>
+            <td>Product Priority</td>
+            <td>
+                <select class="form-select" formControlName="priority">
+                    <option value="">Select</option>
+                    <option [value]="obj?.status" *ngFor="let obj of records.priorityStatus">{{obj?.status}}</option>
+                </select>
+                <label class="validationMessage" *ngIf="showError && getForm.priority?.errors?.required">* please select
+                    priority</label>
+            </td>
+        </tr>
+        <tr>
+            <td>Product Delivery Mode</td>
+            <td>
+                <select class="form-select" formControlName="deliveryMode">
+                    <option value="">Select</option>
+                    <option [value]="obj?.mode" *ngFor="let obj of records.deliveryMode">{{obj?.mode}}</option>
+                </select>
+                <label class="validationMessage" *ngIf="showError && getForm.deliveryMode?.errors?.required">* please
+                    select delivery mode</label>
+            </td>
+        </tr>
+        <tr>
+            <td>Status</td>
+            <td>
+                <select class="form-select" formControlName="status">
+                    <option value="">Select</option>
+                    <option [value]="obj?.status" *ngFor="let obj of records.status">{{obj?.status}}</option>
+                </select>
+                <label class="validationMessage" *ngIf="showError && getForm.status?.errors?.required">* please select
+                    status</label>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="btn">
+                <button (click)="onSubmit()">submit</button>
+                <button (click)="viewRecords()">See Records</button>
+            </td>
+        </tr>
+    </table>
+</form>
